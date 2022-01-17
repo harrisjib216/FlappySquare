@@ -145,7 +145,6 @@
 				D9EEBA711B4336C4885A7B9F /* Pods-FlappyBird-FlappyBirdTests.debug.xcconfig */,
 				B351ABF508A3F7FBAB90F887 /* Pods-FlappyBird-FlappyBirdTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};

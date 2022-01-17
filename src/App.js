@@ -9,7 +9,7 @@ import {
 import { Score } from './components/Score';
 import { Bird } from './components/Bird';
 import { Pipes } from './components/Pipes';
-import { Text } from 'react-native';
+import { Overlay } from './components/Overlay';
 
 // position related
 const initBirdBottom = screenHeight / 2;
@@ -187,8 +187,6 @@ const App = () => {
 		setGameOver(initGameOver);
 	};
 
-	//console.log(pipeLeft2);
-
 	return (
 		<View
 			style={{
@@ -227,57 +225,25 @@ const App = () => {
 				birdBottom={birdBottom}
 			/>
 
+{
+				/* start game! */
+				!isPlaying && !gameOver && (
+					<Overlay
+						title='FLAPPY SQUARE'
+						footer='Tap to play'
+					/>
+				)
+			}
+
 			{
-				/* Game Over Overlay! */
+				/* game over */
 				gameOver && (
-					<View
-						style={{
-							opacity: 0.5,
-							width: '100%',
-							height: '100%',
-							position: 'relative',
-							alignItems: 'center',
-							backgroundColor: '#212121',
-						}}
+					<Overlay
+						title='GAME OVER!'
+						subTitle={`Final score ${score}`}
+						footer='Tap to play again'
 						onTouchStart={restartGame}
-					>
-						{/* game over message */}
-						<Text
-							style={{
-								fontSize: 36,
-								color: 'white',
-								marginTop: 175,
-								fontWeight: '700',
-							}}
-						>
-							GAME OVER!
-						</Text>
-
-						{/* final score */}
-						<Text
-							style={{
-								fontSize: 18,
-								marginTop: 15,
-								color: 'white',
-								fontWeight: '500'
-							}}
-						>
-							Final score {score}
-						</Text>
-
-						{/* play again */}
-						<Text
-							style={{
-								bottom: 150,
-								fontSize: 24,
-								color: 'white',
-								fontWeight: '500',
-								position: 'absolute',
-							}}
-						>
-							Tap to play again
-						</Text>
-					</View>
+					/>
 				)
 			}
 		</View>

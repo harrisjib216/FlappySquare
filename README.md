@@ -1,4 +1,4 @@
-# Flappy Bird (Square)
+# Flappy Square (Bird)
 
 This app is a rendition of the infamous Flappy Bird game.
 
